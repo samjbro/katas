@@ -4,12 +4,15 @@
 require 'anagram'
 
 describe 'anagram' do
-  let(:word_list) { File.read('spec/support/wordlist_sample.txt') }
   let(:dictionary) { File.read('spec/support/dictionary_sample.txt') }
   let(:expected_output) { File.read('spec/support/output.txt') }
 
-  it 'returns the word list with all anagrams' do
-    expect(find_anagrams(word_list, dictionary)).to eq(expected_output)
+  it 'returns the word list with all anagrams for sample dictionary' do
+    expect(find_anagrams(dictionary)).to eq(expected_output)
+  end
+  it 'returns the word list with all anagrams for full dictionary' do
+    full_dictionary = File.read('wordlist.txt')
+    expect(find_anagrams(full_dictionary).lines.length).to eq(20683)
   end
 
 end
