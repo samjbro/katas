@@ -9,6 +9,6 @@ RSpec.describe '#concats' do
   end
   it "returns all 6-letter words that are concatenations of two valid words from full dictionary" do
     expect(concats(IO.readlines('wordlist.txt')).size).to eq 18470
-    # p concats(IO.readlines('wordlist.txt'))
+    p concats(IO.readlines('wordlist.txt'))
   end
 end
